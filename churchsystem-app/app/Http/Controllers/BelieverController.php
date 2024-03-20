@@ -1,95 +1,80 @@
 <?php
-namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Believer;
 
-class BelieverController extends Controller
+namespace App\Http\Controllers;
+
+use App\Models\Believer;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\StoreBelieverRequest;
+use App\Http\Requests\UpdateBelieverRequest;
+
+class BelieversController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-        $believer = Believer::all();
-        return view('index', compact('believer'));
+        return view('believers.index', [
+            'believers' => Believer::latest()->paginate(3)
+        ]);
     }
+
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
-        return view('create');
+        return view('believers.create');
     }
+
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBelieverRequest $request): RedirectResponse
     {
-        $storeData = $request->validate([
-            'name' => 'required|max:255',
-            'department' => 'required|max:255',
-            'phone' => 'required|numeric',
-            'residence' => 'required|max:255',
-        ]);
-        $believr = Believer::create($storeData);
-        return redirect('/believers')->with('completed', 'Believer has been saved!');
+        Believer::create($request->all());
+        return redirect()->route('believers.index')
+                ->withSuccess('New believer is added successfully.');
     }
+
     /**
      * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Believer $believer): View
     {
-        //
+        return view('believers.show', [
+            'believer' => $believer
+        ]);
     }
+
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Believer $believer): View
     {
-        $believer = Believer::findOrFail($id);
-        return view('edit', compact('believer'));
+        return view('believers.edit', [
+            'believer' => $believer
+        ]);
     }
+
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateBelieverRequest $request, Believer $believer): RedirectResponse
     {
-        $updateData = $request->validate([
-            'name' => 'required|max:255',
-            'department' => 'required|max:255',
-            'phone' => 'required|numeric',
-            'residence' => 'required|max:255',
-        ]);
-        Believer::whereId($id)->update($updateData);
-        return redirect('/believers')->with('completed', 'Believer has been updated');
+        $believer->update($request->all());
+        return redirect()->back()
+                ->withSuccess('Believer is updated successfully.');
     }
+
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Believer $believer): RedirectResponse
     {
-        $believer = Believer::findOrFail($id);
-        $believr->delete();
-        return redirect('/believers')->with('completed', 'Believer has been deleted');
+        $believer->delete();
+        return redirect()->route('believers.index')
+                ->withSuccess('Believer is deleted successfully.');
     }
 }

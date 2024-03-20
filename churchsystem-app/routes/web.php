@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\BelieverController;
 
 
 /*
@@ -18,4 +18,4 @@ use App\Http\Controllers\StudentController;
 Route::get('/', function () {
     return view('layout');
 });
-Route::resource('students', StudentController::class);
+Route::resource('believers', BelieverController::class);

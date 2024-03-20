@@ -1,18 +1,18 @@
-@extends('members.layouts')
+@extends('believers.layouts')
 
 @section('content')
 
 <div class="card">
     <div class="card-header">
         <div class="float-start">
-            Add New Member
+            Add New Believer
         </div>
         <div class="float-end">
-            <a href="{{ route('members.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
+            <a href="{{ route('believers.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
         </div>
     </div>
     <div class="card-body">
-        <form action="{{ route('members.store') }}" method="post">
+        <form action="{{ route('believers.store') }}" method="post">
             @csrf
 
             <div class="mb-3 row">
@@ -57,7 +57,7 @@
 
             <div class="mb-3 row">
                 <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">Add member</button>
+                    <button type="submit" class="btn btn-primary">Add believer</button>
                 </div>
             </div>
         </form>
