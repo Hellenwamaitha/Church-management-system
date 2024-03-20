@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MembersController;
+use App\Http\Controllers\StudentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,6 @@ use App\Http\Controllers\MembersController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout');
 });
-Route::resource('members', MembersController::class);
+Route::resource('students', StudentController::class);

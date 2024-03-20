@@ -65,7 +65,7 @@
         <div class="row">
         <div class="sidebar">
             <a class="active" href="#home">Home</a>
-            <a href="#members">Members</a>
+            <a href="#members">Believers</a>
             <a href="#contributions">Contributions</a>
             <a href="#registration">Registration</a>
         </div>
