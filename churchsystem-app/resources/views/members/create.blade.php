@@ -1,12 +1,11 @@
-@extends('members.layouts')
+@extends('layouts')
 
 @section('content')
 
-<div class="row justify-content-center mt-3">
-    <div class="col-md-8">
 
-        <div class="container">
-            <div class="container-header">
+
+        <div class="card">
+            <div class="card-header">
                 <div class="float-start">
                     Add New Member
                 </div>
@@ -67,7 +66,7 @@
                 </form>
             </div>
         </div>
-    </div>    
-</div>
+       
+
     
 @endsection

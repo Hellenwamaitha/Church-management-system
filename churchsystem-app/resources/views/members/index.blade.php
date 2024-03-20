@@ -1,9 +1,8 @@
-@extends('members.layouts')
+@extends('layouts')
 
 @section('content')
 
-<div class="row justify-content-center mt-3">
-    <div class="col-md-12">
+
 
         @if ($message = Session::get('success'))
             <div class="alert alert-success" role="alert">
@@ -11,9 +10,9 @@
             </div>
         @endif
 
-        <div class="container">
-            <div class="container-header">Members List</div>
-            <div class="container-body">
+        <div class="card">
+            <div class="card-header">Members List</div>
+            <div class="card-body">
                 <a href="{{ route('members.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Add New Member</a>
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -61,7 +60,7 @@
 
             </div>
         </div>
-    </div>    
-</div>
+      
+
     
 @endsection

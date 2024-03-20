@@ -1,9 +1,8 @@
-@extends('members.layouts')
+@extends('layouts')
 
 @section('content')
 
-<div class="row justify-content-center mt-3">
-    <div class="col-md-8">
+
 
         @if ($message = Session::get('success'))
             <div class="alert alert-success" role="alert">
@@ -11,8 +10,8 @@
             </div>
         @endif
 
-        <div class="container">
-            <div class="container-header">
+        <div class="card">
+            <div class="card-header">
                 <div class="float-start">
                     Edit Member
                 </div>
@@ -73,7 +72,6 @@
                 </form>
             </div>
         </div>
-    </div>    
-</div>
+    
     
 @endsection
