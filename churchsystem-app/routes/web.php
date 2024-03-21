@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BelieverController;
-
+// use App\Http\Controllers\BelieverController;
+use  App\Http\Controllers\BelieversController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +18,6 @@ use App\Http\Controllers\BelieverController;
 Route::get('/', function () {
     return view('layout');
 });
-Route::resource('believers', BelieverController::class);
+Route::get('add_believer', [BelieversController::class, 'addBeliever']);
+
+// Route::resource('believers', BelieverController::class);

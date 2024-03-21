@@ -1,4 +1,4 @@
-@extends('believers.layouts')
+<!-- @extends('believers.layouts')
 
 @section('content')
 
@@ -71,4 +71,4 @@
     </div>
 </div>
 
-@endsection
+@endsection -->

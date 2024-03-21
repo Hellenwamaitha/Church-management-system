@@ -1,4 +1,4 @@
-@extends('layout')
+<!-- @extends('layout')
 @section('content')
 
 <div class="push-top">
@@ -39,5 +39,5 @@
     </tbody>
   </table>
 <div>
-@endsection
+@endsection -->
 
