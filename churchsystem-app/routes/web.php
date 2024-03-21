@@ -18,6 +18,8 @@ use  App\Http\Controllers\BelieversController;
 Route::get('/', function () {
     return view('layout');
 });
-Route::get('add_believer', [BelieversController::class, 'addBeliever']);
+// Route for displaying the create form
+Route::get('/believers/create', [BelieversController::class, 'create'])->name('believers.create');
 
-// Route::resource('believers', BelieverController::class);
+// Route for storing the new believer data
+Route::post('/believers', [BelieversController::class, 'store'])->name('believers.store');
